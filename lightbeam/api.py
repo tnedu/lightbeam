@@ -153,7 +153,9 @@ class EdFiAPI:
         elif self.config["mode"] in ('year_specific',):
             if "year" not in self.config.keys():
                 self.logger.critical("`year` required for 'year_specific' mode.")
+            
             url += "/" + str(self.config["year_specific_path"])
+            self.logger.debug("I am here..."+url)
         elif self.config["mode"] in ('instance_year_specific',):
             if "year" not in self.config.keys() or "instance_code" not in self.config.keys():
                 self.logger.critical("`instance_code` and `year` required for 'instance_year_specific' mode.")
