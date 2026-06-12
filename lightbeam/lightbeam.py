@@ -34,7 +34,8 @@ class Lightbeam:
             "mode": "year_specific",
             "year": datetime.today().year,
             "client_id": "",
-            "client_secret": ""
+            "client_secret": "",
+            "year_specific_path": ""
         },
         "connection": {
             "pool_size": 8,
@@ -133,6 +134,7 @@ class Lightbeam:
             "config_file": self.config_file,
             "data_dir": self.config["data_dir"],
             "api_url": self.config["edfi_api"]["base_url"],
+            "year_specific_path": self.config["edfi_api"]["year_specific_path"],
             "namespace": self.config["namespace"],
             "namespace_overrides": namespace_overrides,
             "resources": {}
