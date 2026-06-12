@@ -146,7 +146,7 @@ class EdFiAPI:
         if self.config["version"]!=3:
             self.logger.critical("Sorry, lightbeam only supports connections to v3+ Ed-Fi APIs.")
         if self.config["base_url"][-1]!="/": url = self.config["base_url"]
-        else: url = self.config["base_url"] + "data/v3"
+        else: url = self.config["base_url"]
 
         if self.config["mode"] is None: pass
         elif self.config["mode"] in ('shared_instance', 'sandbox', 'district_specific',): pass
@@ -157,7 +157,7 @@ class EdFiAPI:
         elif self.config["mode"] in ('instance_year_specific',):
             if "year" not in self.config.keys() or "instance_code" not in self.config.keys():
                 self.logger.critical("`instance_code` and `year` required for 'instance_year_specific' mode.")
-            url += "/" + self.config["instance_code"] + "/" + str(self.config["year"]) + "/" + "data/v3"
+            url += "/" + self.config["instance_code"] + "/"  + str(self.config["year_specific_path"])
         else:
             self.logger.critical(f"Invalid `api_mode` - must be one of: [shared_instance, sandbox, "
                 "district_specific, year_specific, or instance_year_specific]. See {base_url} to find out your apiMode.")
