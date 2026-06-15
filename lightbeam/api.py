@@ -151,13 +151,13 @@ class EdFiAPI:
         if self.config["mode"] is None: pass
         elif self.config["mode"] in ('shared_instance', 'sandbox', 'district_specific',): pass
         elif self.config["mode"] in ('year_specific',):
-            if "year" not in self.config.keys():
-                self.logger.critical("`year` required for 'year_specific' mode.")
+            if "year" not in self.config.keys() or "year_specific_path" not in self.config.keys():
+                self.logger.critical("`year` and `year_specific_path` required for 'year_specific' mode.")
             url += "/" + str(self.config["year_specific_path"])
             self.logger.debug("config.mode is year_specific, url is base_url and year_specific_path: " + url)
         elif self.config["mode"] in ('instance_year_specific',):
-            if "year" not in self.config.keys() or "instance_code" not in self.config.keys():
-                self.logger.critical("`instance_code` and `year` required for 'instance_year_specific' mode.")
+            if "year" not in self.config.keys() or "instance_code" not in self.config.keys() or "year_specific_path" not in self.config.keys():
+                self.logger.critical("`instance_code` and `year` and `year_specific_path` required for 'instance_year_specific' mode.")
             url += "/" + self.config["instance_code"] + "/"  + str(self.config["year_specific_path"])
         else:
             self.logger.critical(f"Invalid `api_mode` - must be one of: [shared_instance, sandbox, "
