@@ -14,6 +14,9 @@ class Fetcher:
     def fetch(self):
         self.lightbeam.results = []
         asyncio.run(self.get_records())
+
+        # write structured output (if needed)
+        self.lightbeam.write_structured_output("delete")
     
     async def get_records(self, do_write=True, log_status_counts=True):
         self.lightbeam.api.do_oauth()
