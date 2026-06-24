@@ -40,9 +40,9 @@ class Deleter:
             self.logger.info("finished processing endpoint {0}!".format(endpoint))
             self.logger.info("  (final status counts: {0})".format(self.lightbeam.status_counts))
             self.lightbeam.log_status_reasons()
-
         # write structured output (if needed)
         self.lightbeam.write_structured_output("delete")
+        print("Newly added I am here msg - finished deleting data for {0} endpoints!".format(len(endpoints)))
 
     # Deletes data matching payloads in config.data_dir for single endpoint
     async def do_deletes(self, endpoint):
