@@ -41,6 +41,7 @@ class Deleter:
             self.logger.info("  (final status counts: {0})".format(self.lightbeam.status_counts))
             self.lightbeam.log_status_reasons()
         # write structured output (if needed)
+        print("Newly added I am here msg - before calling structured output")
         self.lightbeam.write_structured_output("delete")
         print("Newly added I am here msg - finished deleting data for {0} endpoints!".format(len(endpoints)))
 
