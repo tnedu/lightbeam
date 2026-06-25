@@ -39,7 +39,7 @@ class Deleter:
             asyncio.run(self.do_deletes(endpoint))
             self.logger.info("finished processing endpoint {0}!".format(endpoint))
             self.logger.info("  (final status counts: {0})".format(self.lightbeam.status_counts))
-            self.logger.info("Status Count Message forendpoint {0}!".format(endpoint), "final status counts: {0}".format(self.lightbeam.status_counts))
+            self.logger.info("Status Count Message for endpoint {0}!".format(endpoint) + "final status counts: {0}".format(self.lightbeam.status_counts))
             self.lightbeam.log_status_reasons()
         # write structured output (if needed)
         self.lightbeam.write_structured_output("delete")
